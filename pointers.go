@@ -16,3 +16,8 @@ func main() {
 	*p = *p / 4			// divide j through the pointer
 	fmt.Println(j)		// see the new value of j
 }
+
+//Output:
+//42
+//21
+//500
