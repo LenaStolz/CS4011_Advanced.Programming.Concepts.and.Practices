@@ -34,7 +34,7 @@ func Same(t1, t2 *tree.Tree) bool{
 }
 
 // Test the walk function
-func firstTest() {
+func walkTest() {
 	channel := make(chan int)
 	go Walk(tree.New(1), channel)
 	for i := 1; i < 11; i ++ {
@@ -47,7 +47,7 @@ func firstTest() {
 }
 
 // Test the 'same' function
-func secondTest() {
+func sameTest() {
 	if (Same(tree.New(1), tree.New(1)) && Same(tree.New(1), tree.New(2))) {
 		fmt.Println("'Same'-function does work")
 	} else {
@@ -57,6 +57,6 @@ func secondTest() {
 }
 
 func main() {
-	firstTest()
-	secondTest()
+	walkTest()
+	sameTest()
 }
