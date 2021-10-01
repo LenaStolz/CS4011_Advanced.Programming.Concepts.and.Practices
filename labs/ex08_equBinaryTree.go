@@ -43,15 +43,20 @@ func firstTest() {
 			break
 		}
 	}
-	fmt.Println("Walk works")
+	fmt.Println("Walk possible")
 }
 
 // Test the 'same' function
 func secondTest() {
-	
+	if (Same(tree.New(1), tree.New(1)) && Same(tree.New(1), tree.New(2))) {
+		fmt.Println("'Same'-function does work")
+	} else {
+		fmt.Println("'Same'-function does not work")
+	}
 
 }
 
 func main() {
 	firstTest()
+	secondTest()
 }
