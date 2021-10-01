@@ -19,7 +19,19 @@ func Walk(t *tree.Tree, ch chan int) {
 
 // Same determines whether the trees
 // t1 and t2 contain the same values.
-//func Same(t1, t2 *tree.Tree) bool
+func Same(t1, t2 *tree.Tree) bool{
+	channel1 := make(chan int)
+	channel2 := make(chan int)
+	go Walk(t1, channel1)
+	go Walk(t2, channel2)
+
+	for i := 0; i < cap(channel1); i ++ {
+		if(<-channel1 != <-channel2){
+			return false
+		}
+	}
+	return true
+}
 
 // Test the walk function
 func firstTest() {
@@ -32,6 +44,12 @@ func firstTest() {
 		}
 	}
 	fmt.Println("Walk works")
+}
+
+// Test the 'same' function
+func secondTest() {
+	
+
 }
 
 func main() {
