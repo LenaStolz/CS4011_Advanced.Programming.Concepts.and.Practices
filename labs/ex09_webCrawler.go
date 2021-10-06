@@ -49,9 +49,9 @@ func (c Counter) checkvisited(url string) bool {
 }
 
 func main() {
-	var waitG sync.Waitgroup
+	var waitG sync.WaitGroup
 	waitG.Add(1)
-	go Crawl("http://golang.org/", 4, fetcher, &waitG)
+	go Crawl("https://golang.org/", 4, fetcher, &waitG)
 	waitG.Wait()
 }
 
